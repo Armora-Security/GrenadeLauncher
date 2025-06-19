@@ -1,2 +1,155 @@
 # GrenadeLauncher
 Armora Server Environtment launcher for deploying all server
+
+---
+
+## README.md: Armora Server Environment Setup Guide
+
+Hey there! This guide walks you through setting up a server infrastructure for the **Armora Server Environment**. We'll cover downloading OS ISOs, installing some less common frameworks, and running an installation script.
+
+### Important Disclaimer!
+
+---
+
+**Please read this carefully before proceeding.**
+
+**This setup guide describes a highly experimental and undefined testing environment. It is provided for informational and educational purposes only. The software, scripts, and configurations detailed herein are not guaranteed to be stable, secure, or fit for any particular purpose. Running commands with `sudo` and installing lesser-known frameworks can introduce significant security vulnerabilities and system instability. YOU ARE SOLELY RESPONSIBLE FOR ANY DAMAGE, DATA LOSS, OR OTHER ISSUES THAT MAY ARISE FROM FOLLOWING THESE INSTRUCTIONS. PROCEED AT YOUR OWN RISK. THE AUTHOR AND CONTRIBUTORS OF THIS GUIDE ACCEPT NO RESPONSIBILITY OR LIABILITY FOR ANYTHING THAT OCCURS AS A RESULT OF ITS USE.**
+
+---
+
+### Introduction
+
+This document outlines the steps to build a specialized server environment designed to support the Armora project. It aims to provide a sandbox for exploring unique technology stacks and configurations that might not be found in typical server deployments. The focus is on incorporating diverse operating systems and less commonly adopted programming frameworks to push the boundaries of conventional server infrastructure.
+
+### License Information
+
+**This software and its accompanying code are proprietary. All rights are reserved.**
+
+**The use, reproduction, distribution, or modification of this code is strictly prohibited without explicit written permission from the copyright holder.** This `README.md` and the associated scripts are provided for review purposes only, specifically to demonstrate code safety and functionality. **DO NOT ATTEMPT TO RUN OR DEPLOY THIS CODE WITHOUT PROPER AUTHORIZATION.**
+
+For detailed licensing terms, please refer to the `LICENSE.txt` file in the root directory of this project.
+
+### Initial Preparations
+
+Before you dive in, ensure you have a stable internet connection and sufficient disk space.
+
+---
+
+### Step 1: Download Operating System ISOs
+
+We'll grab a few OS ISOs for our experimental setup. Pick one or several based on your needs:
+
+* **Ubuntu Server LTS (Long Term Support)**: A solid choice for servers with long-term support.
+    ```bash
+    # Example: Downloading Ubuntu 22.04 LTS Server
+    wget https://releases.ubuntu.com/jammy/ubuntu-22.04.4-live-server-amd64.iso -P ~/Downloads/ISO/
+    ```
+* **Debian Netinst**: Lightweight and flexible for minimal installations.
+    ```bash
+    # Example: Downloading Debian 12 (Bookworm) Netinst
+    wget https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-12.6.0-amd64-netinst.iso -P ~/Downloads/ISO/
+    ```
+* **Alpine Linux**: Extremely lightweight, ideal for containers or minimalist environments.
+    ```bash
+    # Example: Downloading Alpine Linux Standard
+    wget https://dl-cdn.alpinelinux.org/alpine/v3.20/releases/x86_64/alpine-standard-3.20.0-x86_64.iso -P ~/Downloads/ISO/
+    ```
+* **FreeBSD**: If you want to explore a BSD-based OS.
+    ```bash
+    # Example: Downloading FreeBSD 14.0 RELEASE
+    wget https://download.freebsd.org/ftp/releases/VM-IMAGES/14.0-RELEASE/amd64/VIRTUALBOX/FreeBSD-14.0-RELEASE-amd64.vmdk.xz -P ~/Downloads/ISO/
+    # Note: This is a VMDK image, not a direct ISO. It can be imported into VirtualBox.
+    ```
+
+**Tip**: Create a dedicated directory for your ISOs: `mkdir -p ~/Downloads/ISO/`
+
+---
+
+### Step 2: Install Less Common Frameworks
+
+For an extra challenge, let's try some programming languages or frameworks that might not be widely adopted in mainstream server projects. Examples include:
+
+#### A. **Crystal Language**
+
+Crystal is a compiled language inspired by Ruby, offering performance comparable to C.
+
+1.  **Install Dependencies:**
+    ```bash
+    sudo apt update
+    sudo apt install -y libssl-dev libyaml-dev libgmp-dev libreadline-dev libffi-dev
+    ```
+2.  **Add Key and Repository:**
+    ```bash
+    curl -fsSL https://dist.crystal-lang.org/apt/setup.sh | sudo bash
+    ```
+3.  **Install Crystal:**
+    ```bash
+    sudo apt install -y crystal
+    ```
+4.  **Verify Installation:**
+    ```bash
+    crystal -v
+    ```
+
+#### B. **Elixir with Phoenix Framework**
+
+Elixir is a functional language running on the Erlang VM, excellent for distributed systems. Phoenix is its web framework.
+
+1.  **Install Erlang (using `asdf` or `kerl` for flexibility):**
+    ```bash
+    # Install asdf version manager (recommended)
+    git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.14.0
+    echo ". \"$HOME/.asdf/asdf.sh\"" >> ~/.bashrc
+    echo ". \"$HOME/.asdf/completions/asdf.bash\"" >> ~/.bashrc
+    source ~/.bashrc
+
+    # Add Erlang and Elixir plugins
+    asdf plugin add erlang https://github.com/asdf-vm/asdf-erlang.git
+    asdf plugin add elixir https://github.com/asdf-vm/asdf-elixir.git
+
+    # Install Erlang (latest version)
+    asdf install erlang latest
+    asdf global erlang latest
+
+    # Install Elixir (latest version)
+    asdf install elixir latest
+    asdf global elixir latest
+    ```
+2.  **Install Phoenix (if Elixir is installed):**
+    ```bash
+    mix local.hex --force
+    mix archive.install hex phx_new 1.7.12 --force # Adjust to the latest Phoenix version
+    ```
+3.  **Verify Installation:**
+    ```bash
+    elixir -v
+    mix phx.new --version
+    ```
+
+---
+
+### Step 3: Run the `install.sh` Script
+
+**IMPORTANT: Before proceeding, ensure you have reviewed and fully understand the contents of the `install.sh` script. This script can significantly modify your system. Given its proprietary nature, we cannot display its content here. Verify its safety and purpose before execution.**
+
+**How to Run the Script:**
+
+1.  **Ensure the `install.sh` file is present** in your working directory.
+2.  **Grant execute permissions** to the script:
+    ```bash
+    chmod +x install.sh
+    ```
+3.  **Execute the script** with `sudo`:
+    ```bash
+    sudo ./install.sh
+    ```
+
+---
+
+### Post-Installation
+
+* **Reboot your system** after running `install.sh` to ensure all changes, especially user additions to the Docker group, take effect.
+* **Verify installations** of Nginx, Docker, Crystal, or Elixir/Phoenix using commands like `nginx -v`, `docker run hello-world`, `crystal -v`, `elixir -v`.
+* **Further explore** by creating sample projects using the installed frameworks.
+
+---
