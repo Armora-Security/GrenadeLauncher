@@ -1,0 +1,21 @@
+PROPRIETARY LICENSE
+
+Copyright © 2025 [Your Name/Company Name Here]. All Rights Reserved.
+
+This software, including all associated code, scripts, documentation, and related materials (collectively, the "Software"), is the exclusive proprietary property of [Your Name/Company Name Here] and is protected by copyright laws and international treaties.
+
+Unauthorized Use, Reproduction, Distribution, or Modification is Strictly Prohibited.
+
+1.  **Grant of License:** This license grants you no rights other than those explicitly stated herein. No implied licenses are granted.
+2.  **Purpose of Provision:** This Software is provided to you for the SOLE PURPOSE OF REVIEW AND INSPECTION, specifically to verify its content and safety. It is NOT for deployment, execution, use in any production or development environment, reproduction, distribution, public display, reverse engineering, decompilation, or modification.
+3.  **Prohibitions:** You are expressly prohibited from:
+    * Using the Software for any purpose other than authorized review.
+    * Copying, reproducing, or distributing the Software, in whole or in part.
+    * Modifying, adapting, translating, or creating derivative works of the Software.
+    * Reverse engineering, decompiling, or disassembling the Software.
+    * Sub-licensing, renting, leasing, selling, or otherwise transferring the Software.
+    * Removing or altering any copyright, trademark, or other proprietary notices from the Software.
+4.  **No Warranty:** THE SOFTWARE IS PROVIDED "AS IS," WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT, OR OTHERWISE, ARISING FROM, OUT OF, OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+5.  **Termination:** This license automatically terminates if you fail to comply with any of its terms. Upon termination, you must immediately cease all use of the Software and destroy all copies thereof.
+
+By reviewing this Software, you acknowledge and agree to abide by the terms and conditions set forth in this Proprietary License.
